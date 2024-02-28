@@ -1,5 +1,9 @@
 {
-  "name": "reveal-vite",
+  "name": "presentation-chalet",
+  "description": "Chalet presentation for C++ Online",
+	"homepage": "https://www.chalet-work.space",
+	"author": "Andrew R. King",
+	"license": "MIT",
   "private": true,
   "version": "0.0.0",
   "type": "module",
