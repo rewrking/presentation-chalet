@@ -8,11 +8,13 @@
 // Include theme-specific fonts
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,500);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(https://fontlibrary.org//face/courier-prime-code);
 
 // Override theme settings (see ./template/settings.scss)
 $backgroundColor: #111;
 
 $mainFont: 'Open Sans', sans-serif;
+$codeFont: 'Courier Prime Code', monospace;
 $linkColor: #f49309;
 $linkColorHover: lighten( $linkColor, 20% );
 $headingFont: 'Poppins', sans-serif;
@@ -29,10 +31,15 @@ $selectionBackgroundColor: #231F3F;
 
 
 // Overrides
-.reveal pre code {
-	padding: 24px 32px;
-	overflow: hidden;
-	max-height: 600px;
+.reveal pre {
+	font-size: 0.45em;
+	line-height: 1.25;
+
+	code {
+		padding: 24px 32px;
+		overflow: hidden;
+		max-height: 600px;
+	}
 }
 
 img.chalet-logo {
