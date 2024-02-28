@@ -8,12 +8,10 @@ Reveal.initialize({
 	hash: true,
 	controls: false,
 	controlsBackArrows: "faded",
-
 	plugins: [
 		RevealHighlight,
 		RevealNotes,
 	],
-
 	autoAnimateEasing: "ease-out",
 	autoAnimateDuration: 0.25,
 	autoAnimateUnmatched: false,
