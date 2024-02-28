@@ -7,11 +7,9 @@
     "start": "vite",
     "build": "vite build"
   },
-  "devDependencies": {
-    "vite": "5.1.4"
-  },
   "dependencies": {
     "reveal.js": "5.0.5",
-    "sass": "1.71.1"
+    "sass": "1.71.1",
+    "vite": "5.1.4"
   }
 }
