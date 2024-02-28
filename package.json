@@ -1,22 +1,23 @@
 {
-  "name": "presentation-chalet",
-  "description": "Chalet presentation for C++ Online",
+	"name": "presentation-chalet",
+	"description": "Chalet presentation for C++ Online",
 	"homepage": "https://www.chalet-work.space",
 	"author": "Andrew R. King",
 	"license": "MIT",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "start": "vite",
-    "build": "vite build"
-  },
-  "dependencies": {
-    "reveal.js": "5.0.5",
-    "sass": "1.71.1",
-    "vite": "5.1.4"
-  },
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"start": "vite",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"reveal.js": "5.0.5",
+		"sass": "1.71.1",
+		"vite": "5.1.4"
+	},
 	"devDependencies": {
-		"@types/reveal.js": "^5.0.1"
+		"@types/reveal.js": "5.0.1",
+		"prettier": "3.2.5"
 	}
 }
