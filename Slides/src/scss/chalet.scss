@@ -1,8 +1,8 @@
 @import "../../node_modules/reveal.js/dist/reset.css";
 @import "../../node_modules/reveal.js/dist/reveal.css";
 
-@import "./template/mixins";
-@import "./template/settings";
+@import "../../node_modules/reveal.js/css/theme/template/mixins";
+@import "../../node_modules/reveal.js/css/theme/template/settings";
 @import "./highlight/retro";
 
 // Include theme-specific fonts
@@ -27,7 +27,7 @@ $selectionBackgroundColor: #231F3F;
 @include light-bg-text-color(#222);
 
 // Theme template
-@import "./template/theme";
+@import "../../node_modules/reveal.js/css/theme/template/theme";
 
 
 // Overrides
