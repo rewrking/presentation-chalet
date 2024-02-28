@@ -1,6 +1,6 @@
-import Reveal from "reveal.js/dist/reveal.esm.js";
-import RevealNotes from "reveal.js/plugin/notes/notes.esm.js";
-import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
+import Reveal from "reveal.js/dist/reveal";
+import RevealNotes from "reveal.js/plugin/notes/notes";
+import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 
 import { regesterYamlPatch } from "./HighlightYaml";
 
