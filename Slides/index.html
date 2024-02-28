@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="/scss/theme/chalet.scss" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+<section>
+	<img class="chalet-logo" data-src="/img/chalet-logo.svg"></img>
+	<h1 class="chalet-logo">CHALET</h1>
+</section>
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project"
+}
+</code></pre></section>
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {}
+}
+</code></pre></section>
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"settings:Cxx": {},
+			"files": "src/**.cpp"
+		}
+	}
+}
+</code></pre></section>
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"settings:Cxx": {
+				"cppStandard": "c++20",
+				"warningsPreset": "pedantic",
+				"precompiledHeader": "src/pch.hpp",
+				"includeDirs": [
+					"src"
+				]
+			},
+			"files": "src/**.cpp"
+		}
+	}
+}
+</code></pre></section>
+<section data-auto-animate><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+	new-project:
+	kind: executable
+	language: C++
+	settings:Cxx:
+		cppStandard: c++20
+		warningsPreset: pedantic
+		precompiledHeader: src/pch.hpp
+		includeDirs:
+		- src
+	files: src/**.cpp
+</code></pre></section>
+		</div>
+	</div>
+
+	<script type="module" src="node_modules/reveal.js/dist/reveal.js"></script>
+	<script type="module" src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script type="module" src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			controls: false,
+			controlsBackArrows: "faded",
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealHighlight, RevealNotes],
+
+			autoAnimateEasing: "ease-out",
+			autoAnimateDuration: 0.25,
+			autoAnimateUnmatched: false,
+			highlight: {
+				beforeHighlight: (hljs) => {
+					hljs.unregisterLanguage("yaml");
+
+					// Highlight quoted strings differently than the default, highlight ':' characters between key/values
+					hljs.registerLanguage("yaml", (hljs) => {
+						const t = "true false yes no null", a = "[\\w#;/?:@&=+$,.~*'()[\\]]+", n = { className: "string-quoted", relevance: 0, variants: [{ begin: /'/, end: /'/ }, { begin: /"/, end: /"/ },], contains: [hljs.BACKSLASH_ESCAPE, { className: "template-variable", variants: [{ begin: /\{\{/, end: /\}\}/ }, { begin: /%\{/, end: /\}/ },], },], }, m = { className: "string", relevance: 0, variants: [{ begin: /\S+/ },], contains: [hljs.BACKSLASH_ESCAPE, { className: "template-variable", variants: [{ begin: /\{\{/, end: /\}\}/ }, { begin: /%\{/, end: /\}/ },], },], }, i = hljs.inherit(n, { variants: [{ begin: /'/, end: /'/ }, { begin: /"/, end: /"/ }, { begin: /[^\s,{}[\]]+/ },], }), r = { className: "number", begin: "\\b[0-9]{4}(-[0-9][0-9]){0,2}([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?(\\.[0-9]*)?([ \\t])*(Z|[-+][0-9][0-9]?(:[0-9][0-9])?)?\\b", }, o = { end: ",", endsWithParent: !0, excludeEnd: !0, keywords: t, relevance: 0, }, s = { begin: /\{/, end: /\}/, contains: [o], illegal: "\\n", relevance: 0 }, l = { begin: "\\[", end: "\\]", contains: [o], illegal: "\\n", relevance: 0 }, c = [{ className: "punctuation", begin: ":", relevance: 0 }, { className: "attr", variants: [{ begin: "\\w[\\w :\\/.-]*(?=:[ \t]|:$)" }, { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, { begin: "'\\w[\\w :\\/.-]*':(?=[ \t]|$)" },], }, { className: "meta", begin: "^---\\s*$", relevance: 10 }, { className: "string", begin: "[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^ ][^\\n]*\\n(\\2[^\\n]+\\n?)*", }, { begin: "<%[%=-]?", end: "[%-]?%>", subLanguage: "ruby", excludeBegin: !0, excludeEnd: !0, relevance: 0, }, { className: "type", begin: "!\\w+!" + a }, { className: "type", begin: "!<" + a + ">" }, { className: "type", begin: "!" + a }, { className: "type", begin: "!!" + a }, { className: "meta", begin: "&" + hljs.UNDERSCORE_IDENT_RE + "$" }, { className: "meta", begin: "\\*" + hljs.UNDERSCORE_IDENT_RE + "$" }, { className: "bullet", begin: "-(?=[ ]|$)", relevance: 0 }, hljs.HASH_COMMENT_MODE, { beginKeywords: t, keywords: { literal: t } }, r, { className: "number", begin: hljs.C_NUMBER_RE + "\\b", relevance: 0 }, s, l, n, m,], _ = [...c]; return (_.pop(), _.push(i), (o.contains = _), { name: "YAML", case_insensitive: !0, aliases: ["yml"], contains: c });
+					});
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

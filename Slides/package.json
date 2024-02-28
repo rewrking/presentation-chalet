@@ -1,0 +1,17 @@
+{
+  "name": "reveal-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "5.1.4"
+  },
+  "dependencies": {
+    "reveal.js": "5.0.5",
+    "sass": "1.71.1"
+  }
+}

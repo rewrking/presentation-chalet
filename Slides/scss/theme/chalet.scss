@@ -1,0 +1,58 @@
+@import "../../node_modules/reveal.js/dist/reset.css";
+@import "../../node_modules/reveal.js/dist/reveal.css";
+
+@import "./template/mixins";
+@import "./template/settings";
+@import "./highlight/retro";
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,500);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+
+// Override theme settings (see ./template/settings.scss)
+$backgroundColor: #111;
+
+$mainFont: 'Open Sans', sans-serif;
+$linkColor: #f49309;
+$linkColorHover: lighten( $linkColor, 20% );
+$headingFont: 'Poppins', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$selectionBackgroundColor: #231F3F;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+// Theme template
+@import "./template/theme";
+
+
+// Overrides
+.reveal pre code {
+	padding: 24px 32px;
+	overflow: hidden;
+	max-height: 600px;
+}
+
+img.chalet-logo {
+	width: 176px;
+	height: auto;
+	padding-bottom: 16px;
+	margin-bottom: 0;
+}
+
+h1.chalet-logo {
+	font-size: 56px;
+	font-weight: 500;
+	letter-spacing: 18.2px;
+	line-height: 1;
+	margin-left: 9.8px;
+}
+
+div.reveal {
+	background-image: url(/img/flat-mountains-dark.svg);
+	background-size: cover;
+	background-position: 100% center;
+	background-repeat: no-repeat;
+}
