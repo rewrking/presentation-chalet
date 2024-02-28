@@ -82,10 +82,11 @@ targets:
 		</div>
 	</div>
 
-	<script type="module" src="node_modules/reveal.js/dist/reveal.js"></script>
-	<script type="module" src="node_modules/reveal.js/plugin/notes/notes.js"></script>
-	<script type="module" src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
-	<script>
+	<script type="module">
+		import Reveal from "./node_modules/reveal.js/dist/reveal.esm.js";
+		import RevealNotes from "./node_modules/reveal.js/plugin/notes/notes.esm.js";
+		import RevealHighlight from "./node_modules/reveal.js/plugin/highlight/highlight.esm.js";
+
 		// More info about initialization & config:
 		// - https://revealjs.com/initialization/
 		// - https://revealjs.com/config/
