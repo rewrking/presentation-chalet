@@ -5,7 +5,6 @@
 @import "../../node_modules/reveal.js/css/theme/template/settings";
 @import "./highlight/retro";
 
-// Include theme-specific fonts
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,500);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 @import url(https://fontlibrary.org//face/courier-prime-code);
@@ -23,14 +22,10 @@ $headingLetterSpacing: -0.03em;
 $headingTextTransform: none;
 $selectionBackgroundColor: #231F3F;
 
-// Change text colors against light slide backgrounds
 @include light-bg-text-color(#222);
 
-// Theme template
 @import "../../node_modules/reveal.js/css/theme/template/theme";
 
-
-// Overrides
 .reveal pre {
 	font-size: 0.45em;
 	line-height: 1.25;
