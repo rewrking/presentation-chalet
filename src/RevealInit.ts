@@ -8,15 +8,16 @@ const options: Reveal.Options = {
 	hash: true,
 	controls: false,
 	controlsBackArrows: "faded",
-	plugins: [RevealHighlight, RevealNotes],
 	autoAnimateEasing: "ease-out",
 	autoAnimateDuration: 0.25,
 	autoAnimateUnmatched: false,
+	plugins: [RevealHighlight, RevealNotes],
 	highlight: {
 		beforeHighlight: (hljs) => {
 			regesterYamlPatch(hljs);
 		}
-	}
+	},
+	slideNumber: true
 };
 
 Reveal.initialize(options);

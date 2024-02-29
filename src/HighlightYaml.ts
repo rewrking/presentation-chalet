@@ -14,11 +14,12 @@ export function regesterYamlPatch(hljs: any) {
 		// ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
 		// ...and ending with a colon followed immediately by a space, tab or newline.
 		// The YAML spec allows for much more than this, but this covers most use-cases.
+
 		const KEY = {
 			className: "attr",
 			variants: [
-				// added brackets support
-				{ begin: /\w[\w :()\./-]*:(?=[ \t]|$)/ },
+				// added brackets support=
+				{ begin: /\w[\w :()\./-]*(?=:[ \t]|:$)/ },
 				{
 					// double quoted keys - with brackets
 					begin: /"\w[\w :()\./-]*":(?=[ \t]|$)/
@@ -115,6 +116,7 @@ export function regesterYamlPatch(hljs: any) {
 		};
 
 		const MODES = [
+			{ className: "punctuation", begin: ":", relevance: 0 },
 			KEY,
 			{
 				className: "meta",

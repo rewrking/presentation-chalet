@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>Chalet Presentation</title>
+	<link rel="icon" href="/favicon.ico">
 	<link rel="stylesheet" href="/src/scss/chalet.scss" />
 </head>
 <body>
@@ -11,13 +12,259 @@
 		<div class="slides">
 <!-- Start -->
 <!-- Slide -->
-<section data-transition="fade" data-transition-speed="fast">
-	<img class="chalet-logo" data-src="/img/chalet-logo.svg" />
-	<h1 class="chalet-logo">CHALET</h1>
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<img data-src="/img/chalet-logo.svg" />
+	<h1>CHALET</h1>
+	<p>Markup-based cross-platform builds</p>
 </section>
 <!-- Slide -->
-<section data-transition="fade" data-auto-animate>
-	<h4>About me</h4>
+<section data-transition="fade">
+	<div class="group horiz">
+		<img class="about-me" data-src="/img/me.jpg" />
+		<div class="group vert left">
+			<h4 class="secondary">Andrew King</h4>
+			<p>Software developer - C++, Web & Games</p>
+			<div class="spacer"></div>
+			<p>Mastodon: <span>@rewrking@mastodon.gamedev.place</span></p>
+			<p>Bluesky: <span>@rewrking</span></p>
+			<p>Github: <span>@rewrking</span></p>
+			<p>Linkedin: <span>andrewraymondking</span></p>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section data-transition="fade">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Existing markup-based C++ project formats</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Build system</th>
+						<th>File extension</th>
+						<th>File format</th>
+						<th>Platforms</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>MSBuild</td>
+						<td>.vcxproj</td>
+						<td>XML</td>
+						<td>Windows</td>
+						<td>for Visual Studio</td>
+					</tr>
+					<tr>
+						<td>xcodebuild</td>
+						<td>.pbxproj</td>
+						<td>Next-style Property List <span>*</span></td>
+						<td>macOS</td>
+						<td>for Xcode</td>
+					</tr>
+					<tr>
+						<td>CodeLite</td>
+						<td>.project</td>
+						<td>XML</td>
+						<td>All</td>
+						<td>for CodeLite</td>
+					</tr>
+					<tr>
+						<td>Code::Blocks</td>
+						<td>.cbp</td>
+						<td>XML</td>
+						<td>All <span>*</span></td>
+						<td>for Code::Blocks</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section data-transition="fade">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Existing script-based build file formats</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Build system</th>
+						<th>File name / ext</th>
+						<th>File format</th>
+						<th>Platforms</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>CMake</td>
+						<td>CMakeLists.txt<br />.cmake</td>
+						<td>Proprietary</td>
+						<td>All</td>
+						<td>Build system generator<br />Requires project-specific properties <span>*</span><br />Numerous gotchas</td>
+					</tr>
+					<tr>
+						<td>Ninja</td>
+						<td>.ninja</td>
+						<td>Proprietary</td>
+						<td>All</td>
+						<td>Designed to be generated</td>
+					</tr>
+					<tr>
+						<td>GNU Make</td>
+						<td>Makefile<br />.make</td>
+						<td>Proprietary</td>
+						<td>All <span>*</span></td>
+						<td>Windows requires mingw32-make,<br />NMAKE or Qt Jom</td>
+					</tr>
+					<tr>
+						<td>Bazel</td>
+						<td>.bzl</td>
+						<td>Proprietary / Starlark</td>
+						<td>All</td>
+						<td>Specializes in distributed builds</td>
+					</tr>
+					<tr>
+						<td>Meson</td>
+						<td>meson.build</td>
+						<td>Proprietary</td>
+						<td>All</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Qmake</td>
+						<td>.pro</td>
+						<td>Proprietary</td>
+						<td>All</td>
+						<td>for QtCreator <span>*</span></td>
+					</tr>
+					<tr>
+						<td>Premake</td>
+						<td>premake5.lua</td>
+						<td>Lua</td>
+						<td>All <span>*</span></td>
+						<td>Build system generator</td>
+					</tr>
+					<tr>
+						<td>Xmake</td>
+						<td>xmake.lua</td>
+						<td>Lua</td>
+						<td>All</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="standards" data-transition="fade" data-transition-speed="fast">
+	<h4>Another build system...</h4>
+	<div class="spacer"></div>
+	<img data-src="/img/standards_2x.png" />
+</section>
+<!-- Slide -->
+<section data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Where can build systems improve?</h4>
+			<ul>
+				<li class="fragment">Accessibility: beginners shouldn't have to learn a language to write a language</li>
+				<li class="fragment">Markup is easy to parse and maintain, making it a good choice, yet most go for scripting</li>
+				<li class="fragment">New build systems need compatibility with IDEs, but shouldn't be coupled to them</li>
+				<li class="fragment">Script-based build systems just build - they don't consider developer environments</li>
+				<li class="fragment">Most existing systems don't have project initialization, requiring separate tools & template projects</li>
+				<li class="fragment">Package management is seen as a separate tool, yet they have to build code from source</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<div class="group vert left">
+			<h4>What can we automate?</h4>
+			<ul>
+				<li class="fragment">Anything that gets us to a "warm & fuzzy" developer experience. Where is our "go build"?</li>
+				<li class="fragment">Typical things we do inside of shell scripts, outside of our core build process, or between steps</li>
+				<li class="fragment">Dependency management, package management <span>*</span></li>
+				<li class="fragment">Packaging / distribution</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<img data-src="/img/chalet-logo.svg" />
+		<h1>CHALET</h1>
+		<div class="group vert left">
+			<ul>
+				<li class="fragment">An open-source command-line build system & project format</li>
+				<li class="fragment">Describe builds with JSON or YAML markup</li>
+				<li class="fragment">Great for small to medium-sized projects, POCs, teaching</li>
+				<li class="fragment">Focused on streamlining the developer experience</li>
+				<li class="fragment">Designed with the pitchfork layout in mind, but not required</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<img data-src="/img/chalet-logo.svg" />
+		<h1>CHALET</h1>
+		<div class="group vert left">
+			<ul>
+				<li class="fragment">Build C, C++, Objective-C & Objective-C++ & run built executables</li>
+				<li class="fragment">Supported toolchains: MSVC, Clang (and variants), GCC, MinGW, Emscripten</li>
+				<li class="fragment">Full C++20 modules support for MSVC, experimental support for GCC & Clang <span>*</span></li>
+				<li class="fragment">CMake projects as targets - toolchain details get passed along</li>
+				<li class="fragment">Run scripts & processes as targets</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<img data-src="/img/chalet-logo.svg" />
+		<h1>CHALET</h1>
+		<div class="group vert left">
+			<ul>
+				<li class="fragment">Support for packaging builds, creating app bundles & dmg images on macOS</li>
+				<li class="fragment">With settings, generate compile_commands.json, assembly files</li>
+				<li class="fragment">Transitive dependencies using package declarations <span>*</span></li>
+				<li class="fragment">Supports cross-compiling to most common architectures <span>*</span></li>
+				<li class="fragment">Generates Visual Studio, Xcode & Code::Blocks project formats</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<img data-src="/img/chalet-logo.svg" />
+		<h1>CHALET</h1>
+		<div class="group vert left">
+			<ul>
+				<li class="fragment">Generates settings for Visual Studio Code, CLion, Fleet</li>
+				<li class="fragment">Has a command-line interface for querying project details</li>
+				<li class="fragment">Can build projects by generating ninja files, makefiles or running natively <span>*</span></li>
+				<li class="fragment">Future: package management, i18n translations, Additional code languages</li>
+				<li class="fragment">Not a silver bullet: it's fast, but builds in phases</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<div class="group vert left">
+			<h4>What's in a build file?</h4>
+		</div>
+	</div>
 </section>
 <!-- Slide -->
 <section data-transition="fade" data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>

@@ -5,21 +5,28 @@
 @import "../../node_modules/reveal.js/css/theme/template/settings";
 
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,500);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,400,600,700);
 @import url(https://fontlibrary.org/en/face/courier-prime-code);
+
+// Chalet variables
+$primaryColor: #f49309;
+$secondaryColor: #f6bb5e;
+$mainTextColor: #d9d9d9;
+$fadedTextColor: #8d8d9b;
+$bulletColor: #474351;
 
 // Override theme settings (see ./template/settings.scss)
 $backgroundColor: #111;
 
-$mainFont: 'Open Sans', sans-serif;
-$codeFont: 'Courier Prime Code', monospace;
-$linkColor: #f49309;
-$linkColorHover: lighten( $linkColor, 20% );
-$headingFont: 'Poppins', sans-serif;
+$mainFont: "Barlow Semi Condensed", sans-serif;
+$codeFont: "Courier Prime Code", monospace;
+$linkColor: $primaryColor;
+$linkColorHover: lighten($linkColor, 20%);
+$headingFont: "Poppins", sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: -0.03em;
 $headingTextTransform: none;
-$selectionBackgroundColor: #231F3F;
+$selectionBackgroundColor: #231f3f;
 
 @include light-bg-text-color(#222);
 
@@ -28,35 +35,207 @@ $selectionBackgroundColor: #231F3F;
 // Syntax highlighting
 @import "./highlight/retro";
 
-.reveal pre {
-	font-size: 0.45em;
-	line-height: 1.25;
-
-	code {
-		padding: 24px 32px;
-		overflow: hidden;
-		max-height: 600px;
-	}
+html {
+	font-size: 16px;
 }
 
-img.chalet-logo {
-	width: 176px;
-	height: auto;
-	padding-bottom: 16px;
-	margin-bottom: 0;
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	user-select: none;
 }
 
-h1.chalet-logo {
-	font-size: 56px;
-	font-weight: 500;
-	letter-spacing: 18.2px;
-	line-height: 1;
-	margin-left: 9.8px;
-}
-
-div.reveal {
-	background-image: url(/img/flat-mountains-dark.svg);
+.reveal {
+	background-image: url("/img/flat-mountains-dark.svg");
 	background-size: cover;
 	background-position: 100% center;
 	background-repeat: no-repeat;
+
+	.slide-number {
+		font-family: $headingFont;
+		font-size: 1.5rem;
+		font-weight: 400;
+		color: $mainTextColor;
+		background: none !important;
+		right: 2.5rem;
+		bottom: 2rem;
+		font-style: italic;
+	}
+
+	p {
+		font-size: 1.5rem;
+		font-family: $mainFont;
+		color: $mainTextColor;
+		margin: 0;
+		padding: 0;
+
+		> span {
+			color: $secondaryColor;
+		}
+	}
+
+	ul,
+	ol {
+		display: block;
+		position: relative;
+		padding-left: 0px;
+		list-style: none;
+		font-size: 1.5rem;
+		color: $mainTextColor;
+		margin: 0px;
+		padding-top: 0.25rem;
+		padding-bottom: 0.75rem;
+		line-height: 1.625;
+
+		> li {
+			display: block;
+			position: relative;
+			padding-left: 1.5rem;
+			color: $fadedTextColor;
+
+			&.current-fragment {
+				color: inherit;
+			}
+
+			> span {
+				color: $secondaryColor;
+			}
+
+			&::before {
+				display: block;
+				position: absolute;
+				content: "•";
+				color: $bulletColor;
+				font-size: 2rem;
+				line-height: 0;
+				left: 0px;
+				top: 1.075rem;
+			}
+		}
+	}
+
+	pre {
+		font-size: 0.45em;
+		line-height: 1.25;
+
+		code {
+			padding: 1.5rem 2rem;
+			overflow: hidden;
+			max-height: 600px;
+		}
+	}
+
+	h4:not(.secondary) {
+		color: $secondaryColor;
+	}
+
+	div.spacer {
+		display: block;
+		position: relative;
+		width: 1rem;
+		height: 1rem;
+	}
+
+	section {
+		div.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		div.group {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: auto !important;
+			max-width: 100%;
+
+			&.horiz {
+				flex-direction: row;
+				margin: 0 auto;
+			}
+			&.vert {
+				flex-direction: column;
+			}
+			&.left {
+				align-items: flex-start;
+			}
+			&.top {
+				justify-content: start;
+			}
+		}
+
+		&.chalet-logo {
+			padding-bottom: 4rem;
+
+			img {
+				width: 11rem;
+				height: auto;
+				padding-bottom: 1rem;
+				margin-bottom: 0;
+			}
+
+			h1 {
+				font-size: 3.5rem;
+				font-weight: 500;
+				letter-spacing: 0.325em;
+				line-height: 1;
+				margin-left: 0.175em;
+			}
+
+			h1 + p {
+				font-size: 1.5rem;
+				margin-top: 2rem;
+			}
+		}
+
+		&.standards {
+			img {
+				width: 32rem;
+				height: auto;
+				border: 1rem solid white;
+				border-radius: 1rem;
+			}
+		}
+
+		table {
+			font-size: 1.25rem;
+			font-weight: 400;
+
+			tr {
+				min-width: 100%;
+			}
+
+			th {
+				color: $mainTextColor;
+				font-weight: 600;
+			}
+
+			td {
+				background-color: #0a0a0a;
+				color: $mainTextColor;
+				padding: 0.5rem 1rem;
+				border-bottom: 0.125rem solid #272336 !important;
+				border: 0.125rem solid #272336;
+
+				> span {
+					color: $secondaryColor;
+				}
+			}
+
+			th:not(:first-of-type),
+			td:not(:first-of-type) {
+				min-width: 8rem;
+			}
+		}
+
+		img.about-me {
+			width: 11rem;
+			height: 11rem;
+			border-radius: 3rem;
+			margin-right: 2rem;
+		}
+	}
 }
