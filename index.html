@@ -264,6 +264,86 @@
 	</div>
 </section>
 <!-- Slide -->
+<section data-transition="fade">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Commands</h4>
+			<table>
+				<tbody>
+					<tr>
+						<td>init</td>
+						<td>Initialize a project in either the current directory or a subdirectory.</td>
+					</tr>
+					<tr>
+						<td>configure</td>
+						<td>Create a project configuration and fetch external dependencies.</td>
+					</tr>
+					<tr>
+						<td>buildrun</td>
+						<td>Build a project and run a valid executable build target.</td>
+					</tr>
+					<tr>
+						<td>build</td>
+						<td>Run a valid executable build target.</td>
+					</tr>
+					<tr>
+						<td>rebuild</td>
+						<td>Rebuild the project and create a configuration if it doesn't exist.</td>
+					</tr>
+					<tr>
+						<td>clean</td>
+						<td>Unceremoniously clean the build folder.</td>
+					</tr>
+					<tr>
+						<td>bundle</td>
+						<td>Bundle a project for distribution.</td>
+					</tr>
+					<tr>
+						<td>export</td>
+						<td>Export the project to another project format.</td>
+					</tr>
+					<tr>
+						<td>convert</td>
+						<td>Convert the build file from one supported format to another. <span>*</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section data-transition="fade">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Build options</h4>
+			<table>
+				<tbody>
+					<tr>
+						<td>-t, --toolchain</td>
+						<td>A toolchain or toolchain preset to use.</td>
+					</tr>
+					<tr>
+						<td>-a, --arch</td>
+						<td>The architecture to target for the build.</td>
+					</tr>
+					<tr>
+						<td>-c, --configuration</td>
+						<td>The build configuration to use.</td>
+					</tr>
+					<tr>
+						<td>-b --build-strategy</td>
+						<td>The build strategy to use for the selected toolchain.</td>
+					</tr>
+					<tr>
+						<td>-j --max-jobs</td>
+						<td>The number of jobs to run during compilation.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
 <section data-transition="fade" data-transition-speed="fast">
 	<div class="container">
 		<div class="group vert left">
@@ -282,44 +362,6 @@
 {
 	"name": "new-project",
 	"version": "0.0.1"
-}
-</code></pre></section>
-<!-- Slide -->
-<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
-{
-	"name": "new-project",
-	"version": "0.0.1",
-	"author": "John Doe"
-}
-</code></pre></section>
-<!-- Slide -->
-<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
-{
-	"name": "new-project",
-	"version": "0.0.1",
-	"author": "John Doe",
-	"description": "My first Chalet project"
-}
-</code></pre></section>
-<!-- Slide -->
-<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
-{
-	"name": "new-project",
-	"version": "0.0.1",
-	"author": "John Doe",
-	"description": "My first Chalet project",
-	"license": "LICENSE.txt"
-}
-</code></pre></section>
-<!-- Slide -->
-<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
-{
-	"name": "new-project",
-	"version": "0.0.1",
-	"author": "John Doe",
-	"description": "My first Chalet project",
-	"license": "LICENSE.txt",
-	"readme": "README.md"
 }
 </code></pre></section>
 <!-- Slide -->
@@ -651,6 +693,34 @@ targets:
         - opengl32
       appleFrameworks:
         - OpenGL
+      defines[:debug]:
+        - DEBUG
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+      links[:linux]:
+        - GL
+      links[:windows]:
+        - opengl32
+      appleFrameworks:
+        - OpenGL
+      staticLinks[toolchain:mingw]:
+        - prebuilt/mingw/libmylib.a
       defines[:debug]:
         - DEBUG
 </code></pre></section>
