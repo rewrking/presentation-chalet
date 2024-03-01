@@ -171,7 +171,7 @@
 				<li class="fragment">Accessibility: beginners shouldn't have to learn a language to write a language</li>
 				<li class="fragment">Markup is easy to parse and maintain, yet most build systems use scripting</li>
 				<li class="fragment">Markup can also be matched against a schema, providing better tooling</li>
-				<li class="fragment">Package management is seen as a separate tool, yet they have to build code from source</li>
+				<li class="fragment">Package managers are seen as a separate tool, yet they have to build code from source</li>
 			</ul>
 		</div>
 	</div>
@@ -182,10 +182,10 @@
 		<div class="group vert left">
 			<h4>What can we automate?</h4>
 			<ul>
-				<li class="fragment">Project initialization: requires separate tools, template projects, or IDE involvement</li>
-				<li class="fragment">Dependency management</li>
-				<li class="fragment">Package management <span>*</span></li>
-				<li class="fragment">Packaging / distribution</li>
+				<li class="fragment">Project initialization: requires separate tools, a template project, or IDE involvement</li>
+				<li class="fragment">Fetching depedendencies</li>
+				<li class="fragment">Package management & using separate package managers</li>
+				<li class="fragment">Archiving / creating distributions</li>
 				<li class="fragment">Typical things we do inside of shell scripts, outside of builds, or between steps</li>
 				<li class="fragment">Anything that gets us to a "warm & fuzzy" developer experience. What is our "go build"?</li>
 			</ul>
@@ -254,8 +254,7 @@
 				<li class="fragment">Generates editor settings for Visual Studio Code, CLion, Fleet</li>
 				<li class="fragment">Has a command-line interface for querying project details</li>
 				<li class="fragment">Can build projects by generating ninja files, makefiles or running natively <span>*</span></li>
-				<li class="fragment">Future: packages, i18n translations, individual compiler checks, more code languages</li>
-				<li class="fragment">Not a silver bullet: currently builds in phases, not designed for distributed builds</li>
+				<li class="fragment">Future: packages, i18n translations, individual compiler checks, more code languages<br/>more toolchains, some kind of plugin system</li>
 			</ul>
 		</div>
 	</div>
