@@ -20,8 +20,8 @@ $backgroundColor: #111;
 
 $mainFont: "Barlow Semi Condensed", sans-serif;
 $codeFont: "Courier Prime Code", monospace;
-$linkColor: $primaryColor;
-$linkColorHover: lighten($linkColor, 20%);
+$linkColor: $secondaryColor;
+$linkColorHover: $primaryColor;
 $headingFont: "Poppins", sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: -0.03em;
@@ -132,6 +132,16 @@ html {
 	}
 	h6:not(.secondary) {
 		color: $secondaryColor;
+	}
+
+	h6.secondary {
+		> a {
+			color: $mainTextColor;
+
+			&:hover {
+				color: $primaryColor;
+			}
+		}
 	}
 
 	h4:not(.secondary) {
