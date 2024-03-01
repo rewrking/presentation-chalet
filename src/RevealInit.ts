@@ -6,7 +6,7 @@ import { regesterYamlPatch } from "./HighlightYaml";
 
 const options: Reveal.Options = {
 	hash: true,
-	controls: false,
+	controls: true,
 	controlsBackArrows: "faded",
 	autoAnimateEasing: "ease-out",
 	autoAnimateDuration: 0.25,
@@ -17,7 +17,7 @@ const options: Reveal.Options = {
 			regesterYamlPatch(hljs);
 		}
 	},
-	slideNumber: true
+	slideNumber: false
 };
 
 Reveal.initialize(options);
