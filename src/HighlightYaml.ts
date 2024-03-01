@@ -19,7 +19,7 @@ export function regesterYamlPatch(hljs: any) {
 			className: "attr",
 			variants: [
 				// added brackets support=
-				{ begin: /\w[\w :()\./-]*(?=:[ \t]|:$)/ },
+				{ begin: /\w[\w :()\./\-\[\]!]*(?=:[ \t]|:$)/ },
 				{
 					// double quoted keys - with brackets
 					begin: /"\w[\w :()\./-]*":(?=[ \t]|$)/

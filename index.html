@@ -33,6 +33,12 @@
 	</div>
 </section>
 <!-- Slide -->
+<section class="standards" data-transition="fade">
+	<h4>Building a new build system...</h4>
+	<div class="spacer"></div>
+	<img class="fragment" data-src="/img/standards_2x.png" />
+</section>
+<!-- Slide -->
 <section data-transition="fade">
 	<div class="container">
 		<div class="group vert left">
@@ -130,7 +136,7 @@
 						<td>meson.build</td>
 						<td>Proprietary</td>
 						<td>All</td>
-						<td></td>
+						<td>Build system generator</td>
 					</tr>
 					<tr>
 						<td>Qmake</td>
@@ -151,18 +157,12 @@
 						<td>xmake.lua</td>
 						<td>Lua</td>
 						<td>All</td>
-						<td></td>
+						<td>Has a package manager solution</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-</section>
-<!-- Slide -->
-<section class="standards" data-transition="fade" data-transition-speed="fast">
-	<h4>Another build system...</h4>
-	<div class="spacer"></div>
-	<img data-src="/img/standards_2x.png" />
 </section>
 <!-- Slide -->
 <section data-transition="fade" data-transition-speed="fast">
@@ -172,8 +172,9 @@
 			<ul>
 				<li class="fragment">Accessibility: beginners shouldn't have to learn a language to write a language</li>
 				<li class="fragment">Markup is easy to parse and maintain, making it a good choice, yet most go for scripting</li>
+				<li class="fragment">Markup can also be matched against a schema, providing more tooling opportunity</li>
 				<li class="fragment">New build systems need compatibility with IDEs, but shouldn't be coupled to them</li>
-				<li class="fragment">Script-based build systems just build - they don't consider developer environments</li>
+				<li class="fragment">Script-based build systems just build - they don't consider developer experience</li>
 				<li class="fragment">Most existing systems don't have project initialization, requiring separate tools & template projects</li>
 				<li class="fragment">Package management is seen as a separate tool, yet they have to build code from source</li>
 			</ul>
@@ -186,10 +187,10 @@
 		<div class="group vert left">
 			<h4>What can we automate?</h4>
 			<ul>
-				<li class="fragment">Anything that gets us to a "warm & fuzzy" developer experience. Where is our "go build"?</li>
-				<li class="fragment">Typical things we do inside of shell scripts, outside of our core build process, or between steps</li>
+				<li class="fragment">Anything that gets us to a "warm & fuzzy" developer experience. What is our "go build"?</li>
 				<li class="fragment">Dependency management, package management <span>*</span></li>
 				<li class="fragment">Packaging / distribution</li>
+				<li class="fragment">Typical things we do inside of shell scripts, outside of our core build process, or between steps</li>
 			</ul>
 		</div>
 	</div>
@@ -199,9 +200,10 @@
 	<div class="container">
 		<img data-src="/img/chalet-logo.svg" />
 		<h1>CHALET</h1>
+		<h6 class="fragment" data-fragment-index="1">Overview</h6>
 		<div class="group vert left">
 			<ul>
-				<li class="fragment">An open-source command-line build system & project format</li>
+				<li class="fragment" data-fragment-index="1">An open-source command-line build system & project format</li>
 				<li class="fragment">Describe builds with JSON or YAML markup</li>
 				<li class="fragment">Great for small to medium-sized projects, POCs, teaching</li>
 				<li class="fragment">Focused on streamlining the developer experience</li>
@@ -211,30 +213,32 @@
 	</div>
 </section>
 <!-- Slide -->
-<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+<section class="chalet-logo" data-transition="none" data-transition-speed="fast">
 	<div class="container">
 		<img data-src="/img/chalet-logo.svg" />
 		<h1>CHALET</h1>
+		<h6 class="fragment" data-fragment-index="1">Features (1 of 3)</h6>
 		<div class="group vert left">
 			<ul>
-				<li class="fragment">Build C, C++, Objective-C & Objective-C++ & run built executables</li>
-				<li class="fragment">Supported toolchains: MSVC, Clang (and variants), GCC, MinGW, Emscripten</li>
-				<li class="fragment">Full C++20 modules support for MSVC, experimental support for GCC & Clang <span>*</span></li>
+				<li class="fragment" data-fragment-index="1">Builds C, C++, Objective-C & Objective-C++ code (and RC files)</li>
+				<li class="fragment">Supports: MSVC, Clang (and variants), GCC, MinGW, Intel, Emscripten</li>
+				<li class="fragment">Full support for C++20 modules in MSVC, experimental in GCC & Clang <span>*</span></li>
 				<li class="fragment">CMake projects as targets - toolchain details get passed along</li>
-				<li class="fragment">Run scripts & processes as targets</li>
+				<li class="fragment">Run scripts & processes as targets, supports numerous scriping languages</li>
 			</ul>
 		</div>
 	</div>
 </section>
 <!-- Slide -->
-<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+<section class="chalet-logo" data-transition="none" data-transition-speed="fast">
 	<div class="container">
 		<img data-src="/img/chalet-logo.svg" />
 		<h1>CHALET</h1>
+		<h6>Features (2 of 3)</h6>
 		<div class="group vert left">
 			<ul>
-				<li class="fragment">Support for packaging builds, creating app bundles & dmg images on macOS</li>
-				<li class="fragment">With settings, generate compile_commands.json, assembly files</li>
+				<li class="fragment">Create distributions on all platforms, app bundles & dmg images on macOS</li>
+				<li class="fragment">With settings, generate compile_commands.json, and assembly files (via dumpbin / objdump)</li>
 				<li class="fragment">Transitive dependencies using package declarations <span>*</span></li>
 				<li class="fragment">Supports cross-compiling to most common architectures <span>*</span></li>
 				<li class="fragment">Generates Visual Studio, Xcode & Code::Blocks project formats</li>
@@ -243,17 +247,18 @@
 	</div>
 </section>
 <!-- Slide -->
-<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+<section class="chalet-logo" data-transition="none" data-transition-speed="fast">
 	<div class="container">
 		<img data-src="/img/chalet-logo.svg" />
 		<h1>CHALET</h1>
+		<h6>Features (3 of 3)</h6>
 		<div class="group vert left">
 			<ul>
-				<li class="fragment">Generates settings for Visual Studio Code, CLion, Fleet</li>
+				<li class="fragment">Generates editor settings for Visual Studio Code, CLion, Fleet</li>
 				<li class="fragment">Has a command-line interface for querying project details</li>
 				<li class="fragment">Can build projects by generating ninja files, makefiles or running natively <span>*</span></li>
-				<li class="fragment">Future: package management, i18n translations, Additional code languages</li>
-				<li class="fragment">Not a silver bullet: it's fast, but builds in phases</li>
+				<li class="fragment">Future: packages, i18n translations, individual compiler checks, more code languages</li>
+				<li class="fragment">Not a silver bullet: currently builds in phases, not designed for distributed builds</li>
 			</ul>
 		</div>
 	</div>
@@ -276,6 +281,70 @@
 <section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
 {
 	"name": "new-project",
+	"version": "0.0.1"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "0.0.1",
+	"author": "John Doe"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "0.0.1",
+	"author": "John Doe",
+	"description": "My first Chalet project"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "0.0.1",
+	"author": "John Doe",
+	"description": "My first Chalet project",
+	"license": "LICENSE.txt"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "0.0.1",
+	"author": "John Doe",
+	"description": "My first Chalet project",
+	"license": "LICENSE.txt",
+	"readme": "README.md"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "0.0.1",
+	"author": "John Doe",
+	"description": "My first Chalet project",
+	"license": "LICENSE.txt",
+	"readme": "README.md",
+	"homepage": "www.smallbiz.town"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0"
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
 	"version": "1.0.0",
 	"targets": {}
 }
@@ -286,10 +355,48 @@
 	"name": "new-project",
 	"version": "1.0.0",
 	"targets": {
+		"new-project": {}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++"
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
 		"new-project": {
 			"kind": "executable",
 			"language": "C++",
-			"settings:Cxx": {},
+			"files": [
+				"src/main.cpp"
+			]
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
 			"files": "src/**.cpp"
 		}
 	}
@@ -304,6 +411,111 @@
 		"new-project": {
 			"kind": "executable",
 			"language": "C++",
+			"files": "src/**.{cpp,rc}"
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
+			"settings:Cxx": {}
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
+			"settings:Cxx": {
+				"cppStandard": "c++20"
+			}
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
+			"settings:Cxx": {
+				"cppStandard": "c++20",
+				"warnings": [
+					"all",
+					"extra"
+				]
+			}
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
+			"settings:Cxx": {
+				"cppStandard": "c++20",
+				"warningsPreset": "pedantic"
+			}
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
+			"settings:Cxx": {
+				"cppStandard": "c++20",
+				"warningsPreset": "pedantic",
+				"precompiledHeader": "src/pch.hpp"
+			}
+		}
+	}
+}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate><pre data-id="code-1"><code class="language-json" data-trim>
+{
+	"name": "new-project",
+	"version": "1.0.0",
+	"targets": {
+		"new-project": {
+			"kind": "executable",
+			"language": "C++",
+			"files": "src/**.{cpp,rc}",
 			"settings:Cxx": {
 				"cppStandard": "c++20",
 				"warningsPreset": "pedantic",
@@ -311,28 +523,437 @@
 				"includeDirs": [
 					"src"
 				]
-			},
-			"files": "src/**.cpp"
+			}
 		}
 	}
 }
 </code></pre></section>
 <!-- Slide -->
-<section data-auto-animate><pre data-id="code-1"><code class="language-yaml" data-trim>
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
 name: new-project
 version: "1.0.0"
 targets:
   new-project:
     kind: executable
     language: C++
+    files: src/**.{cpp,rc}
     settings:Cxx:
       cppStandard: c++20
       warningsPreset: pedantic
       precompiledHeader: src/pch.hpp
       includeDirs:
         - src
-    files: src/**.cpp
 </code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+      links:
+        - GL
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+      links:
+        - GL
+      defines[:debug]:
+        - DEBUG
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+      links[:!windows]:
+        - GL
+      links[:windows]:
+        - opengl32
+      defines[:debug]:
+        - DEBUG
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+      libDirs:
+        - lib
+      links[:linux]:
+        - GL
+      links[:windows]:
+        - opengl32
+      appleFrameworks:
+        - OpenGL
+      defines[:debug]:
+        - DEBUG
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+defaultConfigurations:
+  - Release
+  - Debug
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+defaultConfigurations:
+  - Debug
+configurations:
+  Release:
+    optimizationLevel: "3"
+    interproceduralOptimization: true
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+externalDependencies:
+  glm:
+    kind: git
+    repository: git@github.com:g-truc/glm.git
+    tag: "1.0.0"
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      cppStandard: c++20
+      warningsPreset: pedantic
+      precompiledHeader: src/pch.hpp
+      includeDirs:
+        - src
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+externalDependencies:
+  glm:
+    kind: git
+    repository: git@github.com:g-truc/glm.git
+    tag: "1.0.0"
+targets:
+  glm:
+    kind: cmakeProject
+    location: ${external:glm}
+    targets: glm/all
+    defines:
+      - BUILD_STATIC_LIBS=ON
+      - BUILD_SHARED_LIBS=OFF
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx: ...
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+externalDependencies:
+  glm:
+    kind: git
+    repository: git@github.com:g-truc/glm.git
+    tag: "1.0.0"
+targets:
+  glm:
+    kind: cmakeProject
+    location: ${external:glm}
+    targets: glm/all
+    defines:
+      - BUILD_STATIC_LIBS=ON
+      - BUILD_SHARED_LIBS=OFF
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx: ...
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+externalDependencies:
+  glm:
+    kind: git
+    repository: git@github.com:g-truc/glm.git
+    tag: "1.0.0"
+package:
+  glm.static:
+    settings:Cxx:
+      includeDirs: ${external:glm}
+      staticLinks: ${externalBuild:glm}/glm/${ar:glm_static}
+targets:
+  glm:
+    kind: cmakeProject
+    location: ${external:glm}
+    targets: glm/all
+    defines:
+      - BUILD_STATIC_LIBS=ON
+      - BUILD_SHARED_LIBS=OFF
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx: ...
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+externalDependencies:
+  glm:
+    kind: git
+    repository: git@github.com:g-truc/glm.git
+    tag: "1.0.0"
+package:
+  glm.static:
+    settings:Cxx:
+      includeDirs: ${external:glm}
+      staticLinks: ${externalBuild:glm}/glm/${ar:glm_static}
+targets:
+  glm:
+    kind: cmakeProject
+    location: ${external:glm}
+    targets: glm/all
+    defines: ...
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx: ...
+    importPackages:
+      - glm.static
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+name: new-project
+version: "1.0.0"
+packagePaths:
+  - /path/to/glm/chalet.yaml
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx: ...
+    importPackages:
+      - glm.static
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+package:
+  package1:
+    settings:Cxx:
+      includeDirs: include/package1
+      staticLinks: ${buildDir}/${ar:package1}
+  package2:
+    importPackages:
+      - package1
+    settings:Cxx:
+      includeDirs: include/package2
+      staticLinks: ${buildDir}/${ar:package2}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+packagePaths:
+  - /path/to/package1/chalet.json
+package:
+  package2:
+    importPackages:
+      - package1
+    settings:Cxx:
+      includeDirs: include/package2
+      staticLinks: ${buildDir}/${ar:package2}
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      ...
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+targets:
+  static-lib:
+    kind: staticLibrary
+    files: src/static/**.{cpp,rc}
+  shared-lib:
+    kind: sharedLibrary
+    files: src/shared/**.{cpp,rc}
+  new-project:
+    kind: executable
+    language: C++
+    files: src/main/**.{cpp,rc}
+    settings:Cxx:
+      ...
+      staticLinks: static-lib
+      links: shared-lib
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+targets:
+  chalet-target:
+    kind: chaletProject
+    location: /path/to/chalet.json
+    targets:
+      - project-a
+  process-target:
+    kind: process
+    path: go
+    arguments:
+      - build
+  script-target:
+    kind: script
+    file: scripts/script_python.py
+</code></pre></section>
+<!-- Slide -->
+<section data-auto-animate data-transition="fade" data-transition-speed="fast"><pre data-id="code-1"><code class="language-yaml" data-trim>
+targets:
+  new-project:
+    kind: executable
+    language: C++
+    files: src/**.{cpp,rc}
+    settings:Cxx:
+      ...
+distribution:
+  BundleName:
+    kind: bundle
+    buildTargets:
+      - new-project
+    include:
+      - data
+    includeDependentSharedLibraries: true
+</code></pre></section>
+<!-- Slide -->
+<section data-transition="fade" data-transition-speed="fast">
+	<div class="container">
+		<div class="group vert left">
+			<h4>Live demo</h4>
+		</div>
+	</div>
+</section>
+<!-- Slide -->
+<section class="chalet-logo" data-transition="fade" data-transition-speed="fast">
+	<img data-src="/img/chalet-logo.svg" />
+	<h1>CHALET</h1>
+	<h6>chalet-work.space</h6>
+	<h6 class="secondary">github.com/chalet-org/chalet</h6>
+	<br />
+	<p>Slides: github.com/rewrking/presentation-chalet</p>
+</section>
+<!-- Slide -->
+<section data-transition="fade">
+	<div class="group horiz">
+		<img class="about-me" data-src="/img/me.jpg" />
+		<div class="group vert left">
+			<h4 class="secondary">Andrew King</h4>
+			<p>Software developer - C++, Web & Games</p>
+			<div class="spacer"></div>
+			<p>Mastodon: <span>@rewrking@mastodon.gamedev.place</span></p>
+			<p>Bluesky: <span>@rewrking</span></p>
+			<p>Github: <span>@rewrking</span></p>
+			<p>Linkedin: <span>andrewraymondking</span></p>
+		</div>
+	</div>
+</section>
 <!-- End -->
 		</div>
 	</div>
