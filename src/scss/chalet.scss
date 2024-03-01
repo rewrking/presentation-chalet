@@ -237,6 +237,13 @@ html {
 			td:not(:first-of-type) {
 				min-width: 8rem;
 			}
+
+			&.commands {
+				td:first-of-type {
+					font-size: 1rem;
+					font-family: $codeFont;
+				}
+			}
 		}
 
 		img.about-me {
